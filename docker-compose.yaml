@@ -1,0 +1,22 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: admincom
+      MYSQL_DATABASE: fscom
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admincom
+      MYSQL_HOST: db # Set the host to the service name of the MySQL container
+    ports:
+      - "3306:3306"
