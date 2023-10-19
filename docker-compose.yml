@@ -1,0 +1,8 @@
+version: '3'
+services:
+  nik-checker:
+    build: .
+    ports:
+      - "5500:5500"
+    env_file:
+      - .env

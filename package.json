@@ -1,26 +1,49 @@
 {
-  "name": "resthub",
+  "name": "cekdptonline",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./index.js",
-    "start:dev": "nodemon ./index.js"
-  },
-  "author": "",
-  "license": "ISC",
+  "description": "cekdptonline",
+  "main": "server.js",
   "dependencies": {
-    "axios": "^1.4.0",
+    "@fastify/formbody": "^7.3.0",
+    "@fastify/multipart": "^7.3.0",
+    "@prisma/client": "^3.7.0",
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
-    "date-and-time": "^3.0.2",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "http-proxy": "^1.18.1",
-    "mysql": "^2.18.1",
-    "node-http-proxy": "^0.2.4",
-    "nodemon": "^2.0.4",
-    "python-shell": "^5.0.0",
-    "react-responsive": "^9.0.2"
-  }
+    "date-and-time": "^2.0.1",
+    "dotenv": "^10.0.0",
+    "fastify": "^3.22.1",
+    "fastify-cors": "^6.0.2",
+    "fastify-multer": "^2.0.3",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "jwt-simple": "^0.5.6",
+    "multer": "^1.4.5-lts.1",
+    "npx": "^10.2.2",
+    "pem": "^1.14.6",
+    "puppeteer": "^14.4.1",
+    "puppeteer-extra": "^3.3.4",
+    "puppeteer-extra-plugin-recaptcha": "^3.6.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.0",
+    "sharp": "^0.31.2",
+    "socket.io": "^4.4.1",
+    "user-agents": "^1.0.1137"
+  },
+  "devDependencies": {
+    "prisma": "^3.15.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitives/cekdptonline"
+  },
+  "keywords": [
+    "API"
+  ],
+  "author": "Andika Leonardo, s.kom",
+  "license": "ISC"
 }
