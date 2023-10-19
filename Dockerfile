@@ -1,5 +1,5 @@
-# Use an official Node.js runtime (slim) as the base image
-FROM node:14-slim
+# Stage 1: Build the Node.js application
+FROM node:14-slim AS build
 
 # Set the working directory in the container
 WORKDIR /app
@@ -32,5 +32,20 @@ RUN npm install --only=production && npm cache clean --force
 # Copy the rest of your application code to the container
 COPY . .
 
-# Start your Node.js application
-CMD ["node", "server.js"]
+# Stage 2: Build the Nginx image
+FROM nginx
+
+# Remove the default Nginx configuration
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copy the Nginx configuration file for your application
+COPY nginx.conf /etc/nginx/conf.d/
+
+# Copy the built Node.js application from the previous stage
+COPY --from=build /app /usr/share/nginx/html
+
+# Expose the port Nginx will listen on (typically 80)
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
