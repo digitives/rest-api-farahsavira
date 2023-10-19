@@ -1,19 +1,20 @@
 version: '3'
 services:
   nik-checker:
-    build:
-      context: .
-      dockerfile: Dockerfile  # Use the Dockerfile with Node.js and Nginx
+    build: .
     ports:
-      - "5500:80"  # Expose Nginx on port 80
+      - "5500:5500"
     env_file:
-      - .env  # Your application environment variables
+      - .env
+    networks:
+      - mynetwork
 
   nginx:
-    image: nginx:latest  # Use the latest Nginx image
+    image: nginx:latest
     ports:
-      - "8080:80"  # Expose Nginx on port 8080
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf  # Mount the custom Nginx configuration
-    depends_on:
-      - nik-checker  # Ensure the nik-checker service is up before starting Nginx
+      - "80:80"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
